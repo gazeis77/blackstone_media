@@ -1,12 +1,12 @@
 (function() {
   var app = angular.module('gemStore', []);
 
-  app.controller('StoreController', function(){
-    this.products = gems;
-  });
+  	app.controller('StoreController', function(){
+    	this.products = gems;
+  		});
 
-  app.controller('TabController', function(){
-    this.tab = 1;
+  	app.controller('TabController', function(){
+    	this.tab = 1;
 
     this.setTab = function(newValue){
       this.tab = newValue;
@@ -23,6 +23,17 @@
       this.current = newGallery || 0;
     };
   });
+
+  app.controller('ReviewController', function(){
+    this.review ={};
+    
+    this.addReview = function(product){
+      this.review.createdOn = Date.now();
+      product.reviews.push(this.review);
+      this.review = {};
+    };
+  });
+
 
   var gems = [
     {
